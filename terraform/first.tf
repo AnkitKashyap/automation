@@ -3,8 +3,9 @@ provider "aws" {
   secret_key = "${var.secret_key}"
   region     = "${var.region}"
 }
-
-resource "aws_instance" "test1" {
-  ami           = "ami-b374d5a5"
-  instance_type = "t2.micro"
+resource "aws_vpc" "main" {
+  cidr_block       = "10.0.0.0/16"
+  tags {
+    Name = "Test"
+  }
 }
