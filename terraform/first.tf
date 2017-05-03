@@ -9,3 +9,23 @@ resource "aws_vpc" "main" {
     Name = "Test"
   }
 }
+resource "aws_subnet" "us-east-public" {
+    vpc_id = "${aws_vpc.main.id}"
+
+    cidr_block = "10.0.11.0/24"
+    availability_zone = "us-east-1a"
+
+    tags {
+        Name = "Public Subnet"
+    }
+}
+resource "aws_subnet" "us-east-private" {
+    vpc_id = "${aws_vpc.main.id}"
+
+    cidr_block = "10.0.12.0/24"
+    availability_zone = "us-east-1a"
+
+    tags {
+        Name = "Private Subnet"
+    }
+}
