@@ -29,3 +29,6 @@ resource "aws_subnet" "us-east-private" {
         Name = "Private Subnet"
     }
 }
+resource "aws_internet_gateway" "igw-test" {
+    vpc_id = "${aws_vpc.main.id}"
+}
